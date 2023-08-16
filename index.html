@@ -1,45 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="has-background-info">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather Dashboard</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Include your stylesheet if needed -->
+    <title>Cloud Watcher</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Weather Dashboard</h1>
-    </header>
-    <main>
-        <section class="search-section">
-            <label for="city-input">Enter City:</label>
-            <input type="text" id="city-input">
-            <button id="search-button">Search</button>
-        </section>
-        <section class="weather-section">
-            <h2>Current Weather</h2>
-            <div class="weather-details">
-                <div class="weather-icon"><img src="" alt="Weather Icon"></div>
-                <div class="weather-description">Description: <span id="weather-description"></span></div>
-                <div class="temperature">Temperature: <span id="temperature"></span>°C</div>
-                <div class="humidity">Humidity: <span id="humidity"></span>%</div>
-                <div class="wind-speed">Wind Speed: <span id="wind-speed"></span> km/h</div>
-            </div>
-        </section>
-        <section class="forecast-section">
-            <h2>5-Day Forecast</h2>
-            <div class="forecast-cards">
-                <!-- Repeat this card structure for each day in the forecast -->
-                <div class="forecast-card">
-                    <h3>Date</h3>
-                    <div class="forecast-icon"><img src="" alt="Weather Icon"></div>
-                    <div class="forecast-description">Description: <span></span></div>
-                    <div class="forecast-temperature">Temperature: <span></span>°C</div>
-                    <div class="forecast-humidity">Humidity: <span></span>%</div>
+    <section class="section">
+        <p class="title has-text-weight-bold">Weather Dashboard</p>
+        <div class="tile is-ancestor">
+            <div class="tile is-ancestor">
+                <div class="tile is-4 is-vertical is-parent">
+                  <div class="tile is-child box has-background-primary">
+                    <input class="input is-link" id="search" type="text" placeholder="Search for a City:">
+                    <button class="button is-link m-1" id="submitSearch">Submit</button>
+
+                    <div id="history">
+                      <p class="has-text-link is-size-3 has-text-centered">Previous Searches:</p>
+
+                    </div>
+                  </div>
                 </div>
-            </div>
-        </section>
-    </main>
-    <script src="script.js"></script> <!-- Include your JavaScript file -->
+                <div class="tile is-parent has-text-centered">
+                  <div class="tile is-child box has-background-primary">
+                    <p class="title has-text-light" id="curCity"></p>
+
+                    <div class="tile is-parent has-text-centered" id="forecastCont">
+                      
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+        </div>
+    </section>
+
+    <!-- a74f5b2196a4b1636be2b2efc00ce135 -->
+    <!-- http://api.openweathermap.org/data/2.5/forecast?id=524901&appid={API key} -->
+    <script src="script.js"></script>
 </body>
 </html>
