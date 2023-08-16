@@ -42,3 +42,60 @@ function renderWeather (city) {
         
 };
     
+function createWeatherCard (mainData, weatherData) { 
+    function dateSplit () {
+        var roughDate = mainData.dt_txt.split(' ');
+        date = roughDate[0];
+    };
+
+    dateSplit();
+
+    console.log(date);
+    var icon = weatherData.icon;
+    var tempNum = mainData.main.temp;
+    var windNum = mainData.wind.speed;
+    var humNum = mainData.main.humidity;
+
+    var cardEl = document.createElement('div');
+    cardEl.setAttribute('class', 'tile is-child box has-background-grey-light');
+    cardEl.setAttribute('id', 'weatherBox');
+    
+    var title = document.createElement('p');
+    title.setAttribute('class', 'title');
+    title.textContent = date;
+
+    var imgEl = document.createElement('img');
+    imgEl.setAttribute('src', "https://openweathermap.org/img/wn/" + mainData.weather[0].icon + "@2x.png");
+    imgEl.setAttribute('alt', 'weather icon');
+
+    var conditions = document.createElement('ul');
+
+    var tempEl = document.createElement('li');
+    tempEl.setAttribute('class', 'has-text-link has-text-weight-bold');
+    tempEl.textContent = `Temp: ${tempNum}Â°F`;
+
+    var windEl = document.createElement('li');
+    windEl.setAttribute('class', 'has-text-link has-text-weight-bold');
+    windEl.textContent = `Wind: ${windNum}mph`;
+
+    var humEl = document.createElement('li');
+    humEl.setAttribute('class', 'has-text-link has-text-weight-bold');
+    humEl.textContent = `Humidity: ${humNum}%`;
+
+    conditions.append(tempEl, windEl, humEl);
+    cardEl.append(title, imgEl, conditions);
+    forecastCont.append(cardEl);
+};
+
+submitBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    submitInput = document.querySelector('#search').value
+    
+    if (submitInput === '') {
+        return
+    };
+    
+    console.log(submitInput);
+    renderWeather(submitInput)
+    document.querySelector('#search').value = '';
+});
