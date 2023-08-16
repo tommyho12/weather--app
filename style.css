@@ -1,0 +1,19 @@
+#weatherBox {
+    margin: 10px;
+    border-width: 5px;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: rgb(72, 95, 199);
+}
+
+#hisBox {
+    margin: 5px;
+}
+
+#history {
+    margin: 10px;
+    border: 0px;
+    border-top: 5px;
+    border-style:double;
+    border-color: rgb(72, 95, 199);
+}
